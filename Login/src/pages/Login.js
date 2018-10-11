@@ -15,7 +15,7 @@ export default class Login extends React.Component<{}>{
 				<Logo/>
         <Form/>
           <View style={styles.signupTextCont}>
-            <Text style={styles.signupTex}>No tienes una cuenta?</Text>
+            <Text style={styles.signupTex}>No tienes una cuenta aun?</Text>
             <Text style={styles.signupButton}> Registrate </Text>
           </View>
 			</View>

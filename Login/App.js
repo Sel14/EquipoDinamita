@@ -18,7 +18,7 @@ export default class App extends React.Component<{}>{
         barStyle="light-content"
       />
         <Login/>
-
+        /*Lamo a Login*/
       </View>
     );
   }
