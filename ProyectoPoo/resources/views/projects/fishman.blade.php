@@ -5,7 +5,7 @@
 <table>
     <tr>
         <td><strong>lanchero</strong></td>
-        <td><strong>telefono</strong></td>
+
         <td><strong>Lugar</strong></td>
         
     </tr>
@@ -13,9 +13,9 @@
     @foreach($project as $projects) 
         <div>
             <tr>
-                <td>{{$projects->Name}}</td>
-                 <td>{{$projects->Phone}}</td>
- 				<td>{{$projects->Place}}</td>
+                <td>{{$projects->name}}</td>
+         
+ 				<td>{{$projects->place}}</td>
             </tr>
         </div>  
     @endforeach

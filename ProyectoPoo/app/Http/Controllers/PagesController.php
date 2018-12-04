@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Fishman;
 use \App\message;
+use \App\User;
 
 class PagesController extends Controller
 {
@@ -17,7 +18,7 @@ class PagesController extends Controller
 
      public function message($id){
         $message = new message();
-        $pescador= Fishman::find($id);
+        $pescador= User::find($id);
 
 
         if ($id==0) {
@@ -28,7 +29,7 @@ class PagesController extends Controller
 
         }
         else{
-            $message->name=$pescador->Name;
+            $message->name=$pescador->name;
             $message->message=request('message');
             $message->save();
 
@@ -45,7 +46,7 @@ class PagesController extends Controller
     return redirect('/project');
    }
    public function show(){
-    $project= Fishman::all();
+    $project= User::all();
 
 
     return view('projects.fishman',compact('project'));
@@ -57,15 +58,15 @@ class PagesController extends Controller
    }
 
     public function edit($id){
-    	$project= Fishman::find($id);
+    	$project= User::find($id);
     	return view('projects.edit',compact('project'));
     }
 
 
     public function update($id){
-    	$project= Fishman::find($id);
+    	$project= User::find($id);
 
-    	$project->Place=request('Place');
+    	$project->place=request('Place');
         
     	$project->save();
 
@@ -80,25 +81,32 @@ class PagesController extends Controller
 
     } 
      public function user(){
-    	$project = new Fishman(); 
+    	/*$project = new Fishman(); 
         
-    	$project->Name=request('Name');
-    	$project->Phone=request('Phone');
-        $project->Place='Playa';
-    	$project->User=request('User');
-        $project->Password=request('Password');
-    	$project->save();
+    	$project->name=request('name');
+    	$project->email=request('email');
+        $project->place='Playa';
+        $project->password=request('password');
+    	$project->save();*/
+
+        $user = new User();
+
+        $user->name=request('name');
+        $user->email=request('email');
+        $user->password=request('password');
+        $user->place='Playa';
+        $user->save();
     	return redirect('/project');
 
     } 
 
     public function fishman($id){
-        $project= Fishman::find($id);
+        $project= User::find($id);
         return view('projects.captain',compact('project'));
     }
 
     public function fishmanChat($id){
-        $project= Fishman::find($id);
+        $project= User::find($id);
         $message= message::all();
         return view('projects.fishmanChat',compact('project','message'));
     }

@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('layout')
 
-<head></head>
-
-<body>
+@section('content')
 
 	<h1>Projects</h1>
 	
@@ -11,10 +8,17 @@
 
 	<button><a href="/project/create"> Nuevo lanchero</a></button>
 	
-</body>
+	 <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                         <button type="submit" class="btn btn-primary">
+                                    cerrar sesion
+                                </button>
+                                    </form>
 
-</html>
-
+	
+	
+	
+@endsection 
 
 
 

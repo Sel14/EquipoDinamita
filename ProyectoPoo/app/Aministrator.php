@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Aministrator extends Model
+class Aministrator extends Authenticatable
 {
     //
 }

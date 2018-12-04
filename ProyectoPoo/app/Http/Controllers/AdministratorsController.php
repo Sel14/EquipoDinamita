@@ -11,6 +11,14 @@ class AdministratorsController extends Controller
 
     use AuthenticatesUsers;
 
-     protected $redirectTo = '/project';
+     protected $loginView = 'adminstrators.login';
     protected $guard= 'admins';
+   public function showLoginForm()
+    {
+        return view('administrators.login');
+    }
+    public function Login(){
+       return redirect('/project');
+    }
+   
 }
