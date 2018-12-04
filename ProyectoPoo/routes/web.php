@@ -31,3 +31,9 @@ Route::get('/project/{project}', 'PagesController@fishman');
 Route::get('/project/{project}/chat', 'PagesController@FishmanChat');
 Route::get('/project/{project}/edit', 'PagesController@edit');
 Route::patch('/project/{project}', 'PagesController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/login','AdministratorsController@showLoginForm');
+Route::post('/admin/login','AdministratorsController@Login');
