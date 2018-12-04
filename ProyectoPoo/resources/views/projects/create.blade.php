@@ -13,13 +13,13 @@
 			<input type="string" name="Name" placeholder="Nombre">
 		</div>
 		<div>
-			<input type="text" name="Phone" placeholder="Telefono">
+			<input type="integer" name="Phone" placeholder="Telefono">
 		</div>
 		<div>
 			<input type="text" name="User" placeholder="Usuario">
 		</div>
 		<div>
-			<input type="text" name="Password" placeholder="Contraseña">
+			<input type="Password" name="Password" placeholder="Contraseña">
 		</div>
 		<div>
 			

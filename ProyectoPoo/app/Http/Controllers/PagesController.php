@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Fishman;
+use \App\message;
 
 class PagesController extends Controller
 {
@@ -13,6 +14,30 @@ class PagesController extends Controller
     	return view('projects.index');
 
     } 
+
+     public function message($id){
+        $message = new message();
+        $pescador= Fishman::find($id);
+
+
+        if ($id==0) {
+            $message->name='Admin';
+            $message->message=request('message');
+            $message->save();
+         return redirect('/admin/chat');
+
+        }
+        else{
+            $message->name=$pescador->Name;
+            $message->message=request('message');
+            $message->save();
+
+            return redirect("/project/{$pescador->id}/chat");  
+
+        }
+        
+    } 
+
 
    public function delete($id){
     $project= Fishman::find($id)->delete();
@@ -26,8 +51,9 @@ class PagesController extends Controller
     return view('projects.fishman',compact('project'));
    }
    public function chat(){
+    $message= message::all();
 
-    dd('hola');
+    return view('projects.adminChat',compact('message'));
    }
 
     public function edit($id){
@@ -58,6 +84,7 @@ class PagesController extends Controller
         
     	$project->Name=request('Name');
     	$project->Phone=request('Phone');
+        $project->Place='Playa';
     	$project->User=request('User');
         $project->Password=request('Password');
     	$project->save();
@@ -72,6 +99,7 @@ class PagesController extends Controller
 
     public function fishmanChat($id){
         $project= Fishman::find($id);
-        return view('projects.fishmanChat',compact('project'));
+        $message= message::all();
+        return view('projects.fishmanChat',compact('project','message'));
     }
 }
