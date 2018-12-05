@@ -20,11 +20,6 @@ Route::get('/embarcaciones', 'PagesController@show');
 Route::get('/project/create', 'PagesController@create');
 Route::post('/project', 'PagesController@user');
 Route::patch('/chat/{project}','PagesController@message');
-/*
-Route::get('/project/{project}/edit', 'PagesController@edit');
-
-Route::delete('/project/{project}', 'PagesController@delete');
-*/
 
 Route::patch('/project/{project}/message', 'PagesController@message');
 Route::get('/project/{project}', 'PagesController@fishman');
