@@ -5,7 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+/**
+*this class contains all the information related to the user's credentials.
+*
+*/
 class User extends Authenticatable
 {
     use Notifiable;
